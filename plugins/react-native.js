@@ -58,8 +58,8 @@ function reactNativePlugin(Raven, options) {
 
     ErrorUtils.setGlobalHandler(function() {
         var error = arguments[0];
-        defaultHandler.apply(this, arguments)
         Raven.captureException(error);
+        defaultHandler.apply(this, arguments)
     });
 }
 
